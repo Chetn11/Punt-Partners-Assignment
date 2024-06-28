@@ -3,11 +3,9 @@
 Basically it's a Text Editor app where user can write a text. and using some option you can give styles to your text.
 
 
-
-
 ## Deployed Link
 
-Assignment link :- [here]().
+Assignment link :- [here](https://punt-partners-assignment.vercel.app/).
 
 ## Directory Structure
 todo-/
@@ -39,16 +37,19 @@ To use Text Editor App locally->
 
 Screen Shots
 
-![Screenshot 1]()
+![Screenshot 1](https://github.com/Chetn11/Punt-Partners-Assignment/blob/main/text-editor/images/1st.PNG)
 
-1. 
-![Screenshot 1]()
+1. Text after selecting some options
+![Screenshot 1](https://github.com/Chetn11/Punt-Partners-Assignment/blob/main/text-editor/images/2nd.PNG)
 
-2. 
-![Screenshot 1]()
+2. Auto save function (it will automatically save when user stop typing for more than 4 sec)
+![Screenshot 1](https://github.com/Chetn11/Punt-Partners-Assignment/blob/main/text-editor/images/Auto%20save.PNG)
 
-3. 
-![Screenshot 1]()
+3. Save text using button
+![Screenshot 1](https://github.com/Chetn11/Punt-Partners-Assignment/blob/main/text-editor/images/3rd.PNG)
+
+4. when fontfamily and weight combination does not supports italic,then toggle button get disabled.
+![Screenshot 1](https://github.com/Chetn11/Punt-Partners-Assignment/blob/main/text-editor/images/4th.PNG)
 
 
 ## Tech Stack

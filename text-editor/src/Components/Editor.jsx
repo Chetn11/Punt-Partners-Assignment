@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 import SelectFont from "./SelectFont";
 import fontsData from "../fonts.json";
 import SelectFontWeight from "./SelectFontWeight";
-import styles from "./Editor.module.css"
+import styles from "./Editor.module.css";
 
 function Editor() {
-
-
-
   const [text, setText] = useState("");
   const [fontFamily, setFontFamily] = useState("Roboto");
   const [fontWeight, setFontWeight] = useState(400);
@@ -28,10 +25,10 @@ function Editor() {
   };
 
   useEffect(() => {
-    const savedText = localStorage.getItem('text') || '';
-    const savedFontFamily = localStorage.getItem('fontFamily') || 'Roboto';
-    const savedFontWeight = localStorage.getItem('fontWeight') || 400;
-    const savedIsItalic = localStorage.getItem('isItalic') === 'true';
+    const savedText = localStorage.getItem("text") || "";
+    const savedFontFamily = localStorage.getItem("fontFamily") || "Roboto";
+    const savedFontWeight = localStorage.getItem("fontWeight") || 400;
+    const savedIsItalic = localStorage.getItem("isItalic") === "true";
 
     setText(savedText);
     setFontFamily(savedFontFamily);
@@ -53,12 +50,12 @@ function Editor() {
 
   useEffect(() => {
     const saveToLocalStorage = () => {
-      localStorage.setItem('text', text);
-      localStorage.setItem('fontFamily', fontFamily);
-      localStorage.setItem('fontWeight', fontWeight);
-      localStorage.setItem('isItalic', isItalic);
+      localStorage.setItem("text", text);
+      localStorage.setItem("fontFamily", fontFamily);
+      localStorage.setItem("fontWeight", fontWeight);
+      localStorage.setItem("isItalic", isItalic);
       setAutoSaveMessage(true);
-      setTimeout(() => setAutoSaveMessage(false), 2000); 
+      setTimeout(() => setAutoSaveMessage(false), 2000);
     };
 
     const handleSaveDebounced = () => {
@@ -76,29 +73,29 @@ function Editor() {
   }, [text, fontFamily, fontWeight, isItalic]);
 
   const handleSave = () => {
-    localStorage.setItem('text', text);
-    localStorage.setItem('fontFamily', fontFamily);
-    localStorage.setItem('fontWeight', fontWeight);
-    localStorage.setItem('isItalic', isItalic);
-    alert('Your content is Saved!');
+    localStorage.setItem("text", text);
+    localStorage.setItem("fontFamily", fontFamily);
+    localStorage.setItem("fontWeight", fontWeight);
+    localStorage.setItem("isItalic", isItalic);
+    alert("Your content is Saved!");
   };
 
   const handleReset = () => {
-    setText('');
-    setFontFamily('Roboto');
+    setText("");
+    setFontFamily("Roboto");
     setFontWeight(400);
     setIsItalic(false);
-    localStorage.removeItem('text');
-    localStorage.removeItem('fontFamily');
-    localStorage.removeItem('fontWeight');
-    localStorage.removeItem('isItalic');
-    alert('Reset!');
+    localStorage.removeItem("text");
+    localStorage.removeItem("fontFamily");
+    localStorage.removeItem("fontWeight");
+    localStorage.removeItem("isItalic");
+    alert("Reset!");
   };
 
   return (
     <div className="App">
       <div className={styles.child}>
-        <div  className={styles.subChild}  >
+        <div className={styles.subChild}>
           <label>FontFamily: </label>
           <SelectFont
             fontFamily={fontFamily}
@@ -106,7 +103,7 @@ function Editor() {
             data={Object.keys(fontsData)}
           />
         </div>
-        <div className={styles.subChild} >
+        <div className={styles.subChild}>
           <label>FontWeight: </label>
           <SelectFontWeight
             fontWeight={fontWeight}
@@ -117,7 +114,7 @@ function Editor() {
           />
         </div>
         <div className={styles.subChild}>
-        <label className={styles.label}>Italic : </label>
+          <label className={styles.label}>Italic : </label>
           <label className={styles.switch}>
             <input
               type="checkbox"
@@ -125,7 +122,7 @@ function Editor() {
               onChange={handleItalicChange}
               disabled={!ToggleItalic}
             />
-            <span className={styles.slider}/>
+            <span className={styles.slider} />
           </label>
         </div>
       </div>
@@ -141,9 +138,13 @@ function Editor() {
           padding: "10px",
         }}
       />
-      <button onClick={handleSave} className={styles.btn}>Save</button>
-      <button onClick={handleReset} className={styles.btn}>Reset</button>
-      {autoSaveMessage && <h4 >Auto save</h4>}
+      <button onClick={handleSave} className={styles.btn}>
+        Save
+      </button>
+      <button onClick={handleReset} className={styles.btn}>
+        Reset
+      </button>
+      {autoSaveMessage && <h4>Auto save</h4>}
     </div>
   );
 }
