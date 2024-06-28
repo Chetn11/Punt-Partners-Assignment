@@ -9,7 +9,6 @@ function Editor() {
   const [fontWeight, setFontWeight] = useState(400);
   const [isItalic, setIsItalic] = useState(false);
   const [fonts, setFonts] = useState([]);
-  const [lastSaveTime, setLastSaveTime] = useState(null);
   const [autoSaveMessage, setAutoSaveMessage] = useState(false);
 
   const handleItalicChange = (e) => {
@@ -77,7 +76,7 @@ function Editor() {
     localStorage.setItem('fontFamily', fontFamily);
     localStorage.setItem('fontWeight', fontWeight);
     localStorage.setItem('isItalic', isItalic);
-    alert('Settings saved!');
+    alert('Your content is Saved!');
   };
 
   const handleReset = () => {
