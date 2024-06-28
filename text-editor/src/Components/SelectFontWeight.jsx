@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from "./Select.module.css"
 
 function SelectFontWeight({fontWeight, setFontWeight, fonts, isItalic, setIsItalic}) {
   
@@ -15,7 +16,7 @@ function SelectFontWeight({fontWeight, setFontWeight, fonts, isItalic, setIsItal
   };
 
     return (
-    <select value={fontWeight} onChange={handelWeightChange}>
+    <select value={fontWeight} onChange={handelWeightChange} className={styles.Select}>
         {fonts.map((variant,i)=>(
             <option key={i} value={variant.weight}>
 

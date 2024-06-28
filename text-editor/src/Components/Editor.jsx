@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SelectFont from "./SelectFont";
 import fontsData from "../fonts.json";
 import SelectFontWeight from "./SelectFontWeight";
+import styles from "./Editor.module.css"
 
 function Editor() {
   const [text, setText] = useState("");
@@ -15,7 +16,7 @@ function Editor() {
     setIsItalic(e.target.checked);
   };
 
-  const canToggleItalic = fonts.some(
+  const ToggleItalic = fonts.some(
     (variant) => variant.weight === fontWeight && variant.style === "italic"
   );
 
@@ -93,8 +94,8 @@ function Editor() {
 
   return (
     <div className="App">
-      <div style={{display:"flex", gap:"30px"}}>
-        <div style={{display:"flex"}}>
+      <div className={styles.child}>
+        <div  className={styles.subChild}  >
           <label>FontFamily: </label>
           <SelectFont
             fontFamily={fontFamily}
@@ -102,7 +103,7 @@ function Editor() {
             data={Object.keys(fontsData)}
           />
         </div>
-        <div style={{display:"flex"}}>
+        <div className={styles.subChild} >
           <label>FontWeight: </label>
           <SelectFontWeight
             fontWeight={fontWeight}
@@ -112,15 +113,16 @@ function Editor() {
             setIsItalic={setIsItalic}
           />
         </div>
-        <div>
-          <label>
-            Italic
+        <div className={styles.subChild}>
+        <label className={styles.label}>Italic : </label>
+          <label className={styles.switch}>
             <input
               type="checkbox"
               checked={isItalic}
               onChange={handleItalicChange}
-              disabled={!canToggleItalic}
+              disabled={!ToggleItalic}
             />
+            <span className={styles.slider}/>
           </label>
         </div>
       </div>
@@ -136,8 +138,8 @@ function Editor() {
           padding: "10px",
         }}
       />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleSave} className={styles.btn}>Save</button>
+      <button onClick={handleReset} className={styles.btn}>Reset</button>
       {autoSaveMessage && <div>Auto save</div>}
     </div>
   );
