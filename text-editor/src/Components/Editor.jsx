@@ -5,6 +5,9 @@ import SelectFontWeight from "./SelectFontWeight";
 import styles from "./Editor.module.css"
 
 function Editor() {
+
+
+
   const [text, setText] = useState("");
   const [fontFamily, setFontFamily] = useState("Roboto");
   const [fontWeight, setFontWeight] = useState(400);
@@ -89,7 +92,7 @@ function Editor() {
     localStorage.removeItem('fontFamily');
     localStorage.removeItem('fontWeight');
     localStorage.removeItem('isItalic');
-    alert('Settings reset!');
+    alert('Reset!');
   };
 
   return (
@@ -140,7 +143,7 @@ function Editor() {
       />
       <button onClick={handleSave} className={styles.btn}>Save</button>
       <button onClick={handleReset} className={styles.btn}>Reset</button>
-      {autoSaveMessage && <div>Auto save</div>}
+      {autoSaveMessage && <h4 >Auto save</h4>}
     </div>
   );
 }
